@@ -1,0 +1,7 @@
+html, body{
+    background-image: url('biblioteca.jpg');
+    background-size: cover;
+    background-position: absolute;
+}
+
+h3{ color: #fff; }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Metas de Leitura 2021</title>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>     
+    <script src="https://unpkg.com/vue-router@2.0.0"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+  <body>
+    <section class="mx-auto d-block text-center my-4">
+        <div class="container">
+            <div id="todos">
+                <h3>Metas de Leitura 2021</h3>
+                <form v-on:submit.prevent="addNovaMeta"
+                    class="d-flex align-items-center flex-column justify-content-center my-3">
+                    <div class="form-row">
+                        <div class="col-auto">
+                            <input v-model="newTodoText"
+                            id="new-todo"
+                            class="form-control"
+                            placeholder="Ex: 1984, George Orwell"/>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-success">Adicionar</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row">
+                <ul class="list-group list-group-flush mx-auto d-block">
+                    <todo-item
+                      v-for="(item, index) in todoList" :key="index"
+                      v-bind:item="item"
+                      v-bind:key="item.id"
+                      v-on:remove="removeItem(index)"
+                    >
+                  </todo-item>
+                  </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <script src="todos.js"></script>
+
+  </body>
+</html>
